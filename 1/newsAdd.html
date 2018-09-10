@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#close{
+			width:20px;
+			height:20px;
+		}
+		li{
+			display:inline-block;
+		}
+	</style>
+</head>
+<body>
+<div style="display:block; overflow:hidden;  line-height:21px;">
+	<div class="tabs">
+		<div class="tabsContent newsAdd" layoutH="7">
+			<form method="post" action="/LiveVideo/admin/news/saveNews.do" class="pageForm required-validate"
+				  onsubmit="return validateCallback_23(this,getNewsFormContent)">
+				<div class="pageFormContent" layoutH="60">
+					<div class="unit">
+						<label>标题：</label>
+						<input name="name" class="required" type="text">
+					</div>
+					<div class="unit">
+						<label>发布时间：</label>  <!--   -->
+						<input type="text" name="date10" class="date required" dateFmt="yyyy-MM-dd HH:mm:ss" disabled="disabled"/>
+						<a class="inputDateButton" href="javascript:;">选择</a>
+					</div>
+					<div class="unit">
+						<label>发布人：</label>
+						<input name="name2" class="required"  type="text">
+					</div>
+					<div class="unit">
+						<label>附件：</label>
+						<input  id='news1' type="file"  multiple="multiple" name="data"/>
+
+					</div>
+					<div class="unit">
+						<label class="fq">已上传附件：</label>
+						<a class="pdf" onclick="$('.pdf').show();" id='con'></a>
+					</div><!-- 点击删除  <img alt="" src="../img/close24.png">-->
+					<!-- <li><a class="delete"  href="/LiveVideo/admin/deleteNoticeAnnex.do "
+                  onclick="deleteNoticeAnnex($(this),event);"><span>删除</span></a></li>	 -->
+					<div class="unit">
+						<label>发布内容：</label>
+							<textarea name="description" rows="8" cols="100">
+							</textarea>
+					</div>
+				</div>
+				<div class="formBar">
+					<ul>
+						<li><div class="buttonActive"><div class="buttonContent"><button type="submit">发布</button></div></div></li>
+						<li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+					</ul>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
+
+
+<!-- <img src="./img/close24.png" > -->
+<!-- 添加多个附件显示 -->
+<script src="jquery.js"></script>
+ <script>
+ var demo = document.getElementById('news1');
+ /*demo.addEventListener('change', function() {
+     var files = this.files;
+     console.log(files);
+     var str = '';
+     for (var i = 0, len = files.length; i < len; i++) {
+         console.log(files[i]);
+         str += '<li>' + files[i].name +'</li>'+ '<img id="close"  src="../images/code.jpg" >';
+     };
+     document.getElementById('con').innerHTML = str;
+ }, false);*/
+ 
+/* $("#close").on("click",function() {
+	 var dataSubmit = {"table": { "tableName": "Pub_Query", "row": {"CurrentPage": "1","PageRecord": "20","table":{"row":[{}]}} }};	
+	 var dataRow=dataSubmit.table.row;
+	 var dataRow4=dataSubmit.table.row.table.row[0];
+	 $.ajax({
+			type : "get",
+			url :'/LiveVideo/admin/deleteNewsAnnex.do',
+			dataType : "json",
+			data :{"datas":JSON.stringify(dataSubmit)} ,
+			error : function() {
+				alert("数据加载失败，请重新加载...");		
+			},
+			success : function(data) {
+				console.log(data);
+					alert("删除成功");		
+									
+			}
+		});	
+	 
+ });*/
+
+
+ demo.addEventListener('change', function() {
+	 var files = this.files;
+	 //console.log(files);
+	 var str = '';
+	 for (var i = 0, len = files.length; i < len; i++) {
+		/* console.log(files[i].name);*/
+		 str += '<li>' + files[i].name +'</li>----'/*+ '<img id="close"  src="../images/code.jpg" >'*/;
+		 console.log($("#con").children().text());
+	 };
+	 document.getElementById('con').innerHTML = str;
+	 //console.log(files[i]);
+
+ }, false);
+
+ $("#close").on("click",function() {
+	 var formData=$("#con").children().text();
+	 if(confirm("确定要添加附件吗?")){
+		 console.log($('#con')[0].files[0]);
+		 formData.append('file', $('#news1')[0].files[0]);
+		 $.ajax({
+			 url: '/LiveVideo/admin/course/upload.do',
+			 type: 'POST',
+			 cache: false,
+			 data: formData,
+			 processData: false,
+			 contentType: false,
+			 dataType: "json",
+			 success: function (res) {
+				 if (res.error == 0) {
+					 $(".newsAdd input:eq(3)").attr("name", res.datas.table.row.contentid);
+				 }
+			 }
+		 })
+	 }
+ })
+
+
+
+ function uploadFile1(){  //提交文件方法
+	// var formData = new FormData();
+
+	// console.log(files[i].name);
+	 if(confirm("确定要添加附件吗?")){
+		 console.log($('#con')[0].files[0]);
+		 formData.append('file', $('#news1')[0].files[0]);
+		 $.ajax({
+			 url: '/LiveVideo/admin/course/upload.do',
+			 type: 'POST',
+			 cache: false,
+			 data: formData,
+			 processData: false,
+			 contentType: false,
+			 dataType: "json",
+			 success: function (res) {
+				 if (res.error == 0) {
+					 $(".newsAdd input:eq(3)").attr("name", res.datas.table.row.contentid);
+				 }
+			 }
+		 })
+	 }
+ }
+			/* }).done(function(res) {
+			 console.log(res);
+			 $(".newsAdd input:eq(3)").attr("name",res.datas.table.row.contentid);
+			 //用户修改
+			 var dataRow5=res.datas.table.row;
+			 console.log(dataRow5);
+			 $(".newsAdd a").attr("href",dataRow5.fullname);
+			 //$(".newsAdd a").html(dataRow5.filename);
+		 }).fail(function(res) {
+			 alert("附件上传失败！");
+		 });	 	}*/
+
+
+
+</script>   
+

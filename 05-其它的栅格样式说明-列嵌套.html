@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <link href="./lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="./lib/html5shiv/html5shiv.min.js"></script>
+    <script src="./lib/respond/respond.js"></script>
+    <![endif]-->
+    <style>
+        .container{
+            height: 100px;
+            background-color: #ccc;
+        }
+        .container > .row{
+            height: 100%;
+        }
+        .row > div{
+            height: 100%;
+            border: 2px solid blue;
+            box-sizing: border-box;
+        }
+        .row > div > .row{
+            height: 100%;
+        }
+        .row > div > .row > div{
+            height: 100%;
+            border: 4px solid purple;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-1">1</div>
+        <div class="col-xs-1">2</div>
+        <div class="col-xs-6 ">
+            <!--
+            1.如果在外层没有再包含container,那么嵌套列的宽度就是参照当前所在的栅格
+            2.如果外层添加了container,那么参照就是核心样式文件所设置的容器宽度-->
+           <div class="container-fluid">
+               <div class="row">
+                    <div class="col-xs-6">3a</div>
+                    <div class="col-xs-6">4a</div>
+              </div>
+            </div>
+        </div>
+        <div class="col-xs-1">4</div>
+        <div class="col-xs-1">5</div>
+        <div class="col-xs-1">6</div>
+        <div class="col-xs-1">7</div>
+    </div>
+</div>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

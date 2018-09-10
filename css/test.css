@@ -1,0 +1,28 @@
+div {
+  color: #e92322;
+}
+a {
+  color: #e92322;
+}
+p {
+  color: #e92322;
+}
+/*变量*/
+div {
+  color: red;
+}
+div div {
+  color: pink;
+}
+div div a {
+  display: block;
+}
+div div + div {
+  color: yellow;
+}
+div div ~ div {
+  color: yellow;
+}
+div:hover {
+  width: 100px;
+}

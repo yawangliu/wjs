@@ -1,0 +1,35 @@
+/*混入*/
+
+@aa:red;
+@bb:green;
+@cc:100px;
+@dd:1px solid yellow;
+
+
+.p{
+  color:@aa;
+}
+
+
+.div(@cc:50px){
+   width:@cc;
+ }
+
+.box{
+  .div(20px)
+}
+
+/*嵌套*/
+
+div{
+  width: 100px;
+  ul{
+    height: 20px;
+    li{
+      border:@dd;
+      &:hover a{
+        color:@aa;
+      }
+    }
+  }
+}

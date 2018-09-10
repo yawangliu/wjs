@@ -1,0 +1,20 @@
+/*混入*/
+.p {
+  color: red;
+}
+.box {
+  width: 20px;
+}
+/*嵌套*/
+div {
+  width: 100px;
+}
+div ul {
+  height: 20px;
+}
+div ul li {
+  border: 1px solid yellow;
+}
+div ul li:hover a {
+  color: red;
+}

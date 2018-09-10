@@ -1,0 +1,22 @@
+@color:#e92322;
+
+div{
+  color: @color;
+}
+a{
+  color: @color;
+}
+p{
+  color: @color;
+}
+
+/*变量*/
+div{
+  color:red;
+  div{color:pink;
+    a{display: block}
+    &+div{color:yellow}
+    &~div{color:yellow}
+  }
+  &:hover{width:100px}
+}

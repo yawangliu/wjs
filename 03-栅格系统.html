@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap 101 Template</title>
+    <!--<link href="./lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="./lib/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="./lib/html5shiv/html5shiv.min.js"></script>
+    <script src="./lib/respond/respond.js"></script>
+    <![endif]-->
+    <style>
+        *{box-sizing: border-box}
+        .container{
+            height: 200px;
+            background-color: #ccc;
+        }
+        .container > .row{
+            height: 100%;
+        }
+        /*
+        w>1200:lg large
+        w:992~1200:md  middle
+        w:768~992:sm  small
+        w<768:xs  extra small
+        */
+        .container > .row > div{
+            /*width: 100%;*/
+            height: 100%;
+            border: 2px solid blue;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <!--class="col-xs-4":设置当前div在xs屏幕占据当前屏幕12等分中的4等分-->
+        <div class="col-xs-6"></div>       <!--xs/sm/md/lg    col-xs-3  超小屏及超小屏以上-->
+        <div class="col-xs-2 col-xs-pull-3">22222</div>       <!--xs/sm/md/lg    col-xs-3  超小屏及超小屏以上-->
+        <div class="col-xs-3"></div>       <!--xs/sm/md/lg    col-xs-3  超小屏及超小屏以上-->
+        <div class="col-xs-3"></div>       <!--xs/sm/md/lg    col-xs-3  超小屏及超小屏以上-->
+        <div class="col-xs-3"></div>       <!--xs/sm/md/lg    col-xs-3  超小屏及超小屏以上-->
+       <!-- <div class="col-xs-3"></div>
+        <div class="col-xs-3"></div>
+        <div class="col-xs-3"></div>-->
+    </div>
+    <!--
+    w<768px   12等分
+    w:768~992: 6等分
+    w:992~1200:4等分
+    w>1200:3等分-->
+   <!-- <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"></div>
+        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3"></div>
+    </div>-->
+</div>
+<script src="./lib/jquery/jquery.min.js"></script>
+<script src="./lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

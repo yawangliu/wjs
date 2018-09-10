@@ -1,0 +1,37 @@
+/*1、注释*/
+/*2、变量*/
+a {
+  color: red;
+}
+/*3、混入*/
+.div2 {
+  color: green;
+}
+.div3 {
+  color: pink;
+}
+/*4、嵌套*/
+/*.div{*/
+div {
+  color: red;
+}
+div ul {
+  list-style: none;
+}
+div ul li {
+  width: 20px;
+  /* &:hover{
+          border:@dd;
+        }*/
+}
+div ul li:hover + li {
+  border: 3px solid blue;
+}
+/*}*/
+/*5、导入*/
+a {
+  color: red;
+}
+p {
+  width: 100px;
+}

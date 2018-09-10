@@ -1,0 +1,53 @@
+
+
+
+/*1、注释*/
+
+/*2、变量*/
+@aa:red;
+@bb:#ccc;
+@cc:20px;
+@dd:3px solid blue;
+a{
+  color:@aa;
+}
+
+/*3、混入*/
+.div1(@ee:green){
+  color:@ee;
+}
+
+.div2{
+  .div1;
+}
+
+.div3{
+  .div1(pink);
+}
+
+/*4、嵌套*/
+/*.div{*/
+  div{
+    color:@aa;
+    ul{
+      list-style:none;
+      li{
+        width: @cc;
+       /* &:hover{
+          border:@dd;
+        }*/
+
+        &:hover+li{
+          border:@dd;
+        }
+      }
+    }
+  }
+/*}*/
+
+/*5、导入*/
+@import "aaa.less";
+  p{
+    width:@qq;
+  }
+
