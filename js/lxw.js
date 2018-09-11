@@ -1,4 +1,5 @@
 $(function(){
+    console.log("cscsad");
     $('[data-toggle="tooltip"]').tooltip();
     var items=$(".carousel-inner .item");
     $(window).on("resize",function(){
@@ -20,7 +21,7 @@ $(function(){
         }
     }).trigger("resize")
 
-    //Ìí¼ÓÒÆ¶¯¶ËµÄ»¬¶¯²Ù×÷
+    //ï¿½ï¿½ï¿½ï¿½Æ¶ï¿½ï¿½ËµÄ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     var startX,endX;
     var carousel_inner=$(".carousel-inner")[0];
