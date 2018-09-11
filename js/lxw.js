@@ -1,5 +1,6 @@
 $(function(){
     console.log("cscsad");
+    console.log("发动机阿斯");
     $('[data-toggle="tooltip"]').tooltip();
     var items=$(".carousel-inner .item");
     $(window).on("resize",function(){
